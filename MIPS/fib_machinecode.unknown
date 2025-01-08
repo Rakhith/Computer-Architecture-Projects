@@ -1,0 +1,11 @@
+li $t0,10
+
+li $t1,0
+li $t2,1
+li $t3,0
+loop:
+add $t4,$t1,$t2
+add $t1,$0,$t2
+add $t2,$0,$t4
+addi $t3,$t3,1
+bne $t3,$t0,loop

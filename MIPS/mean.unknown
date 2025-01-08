@@ -1,0 +1,45 @@
+  .data
+    # Manually specified values
+    value1: .word 10
+    value2: .word 20
+    value3: .word 30
+    value4: .word 40
+    value5: .word 60
+    n1: .word 1
+    n5: .word 5
+    n0: .word 0
+  .text
+  main:
+
+  # Initialize variables
+  lw $t0, n0  # Initialize sum
+ 
+
+  # Load and sum the values
+  lw $t2, value1  # Load first value
+  add $t0, $t0, $t2  # Add value to sum
+
+  lw $t2, value2  # Load second value
+  add $t0, $t0, $t2  # Add value to sum
+
+  lw $t2, value3  # Load third value
+  add $t0, $t0, $t2  # Add value to sum
+
+  lw $t2, value4  # Load fourth value
+  add $t0, $t0, $t2  # Add value to sum
+
+  lw $t2, value5  # Load fifth value
+  add $t0, $t0, $t2  # Add value to sum
+
+  # Calculate average
+  lw $t3, n5  
+  div $t0, $t0, $t3  
+
+  # Print the average
+  lw $v0, n1 
+  add $a0, $0, $t0 
+  syscall
+
+  # Exit program
+  lw $v0, value1  
+  syscall
